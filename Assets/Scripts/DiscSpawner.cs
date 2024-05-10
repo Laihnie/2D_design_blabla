@@ -20,6 +20,7 @@ public class DiscSpawner : MonoBehaviour
 
     private IEnumerator C_Spawn()
     {
+        m_spawnFrequency = Random.Range(5, 10);
         yield return new WaitForSeconds(m_spawnFrequency);
         SpawnDisc();
         StartCoroutine(C_Spawn());

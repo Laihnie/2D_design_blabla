@@ -7,6 +7,12 @@ public class CharaController : MonoBehaviour
     [Header("VFX")]
     [SerializeField] private ParticleSystem m_deathVFX;
 
+    [Header ("Variables")]
+    [SerializeField] private float SpeedValue = 5;
+
+    [Header ("RigidBody")]
+    [SerializeField] private Rigidbody2D rb;
+
     private bool m_isAlive = true;
 
     public void TakeDamage(DiscController disc)
@@ -30,5 +36,18 @@ public class CharaController : MonoBehaviour
                 TakeDamage(disc);
             }
         }
+    }
+
+    void Update()
+    {
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        Vector2 movement = new Vector2(moveX, moveY).normalized * SpeedValue;
+
+        rb.velocity = movement;
+
+
+        
     }
 }

@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rb: {fileID: 7254153880876891348}
-  m_speed: 1
+  m_speed: 5
   m_rotationHandler: {fileID: 6492996298121160886}
   m_rotationSpeed: 100
 --- !u!1 &4034124362477417430

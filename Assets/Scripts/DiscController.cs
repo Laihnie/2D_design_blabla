@@ -8,8 +8,12 @@ public class DiscController : MonoBehaviour
     [Header("References")]
     [SerializeField] private Rigidbody2D m_rb;
 
+
     [Header("Values")]
     [SerializeField] private float m_speed = 01;
+    [SerializeField] private float m_LifeDuration;
+    
+
 
     [Header("Rotation")]
     [SerializeField] private Transform m_rotationHandler;
@@ -29,6 +33,16 @@ public class DiscController : MonoBehaviour
     private void Update()
     {
         m_rotationHandler.Rotate(Vector3.forward * m_rotationSpeed * Time.deltaTime);
+        StartCoroutine(DestroyDisc());
+
+        
+    }
+
+    private IEnumerator DestroyDisc()
+    {
+        m_LifeDuration = Random.Range(50, 60);
+        yield return new WaitForSeconds(m_LifeDuration);
+        Destroy(gameObject);
     }
 
 }
